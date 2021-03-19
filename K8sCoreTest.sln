@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NAPI", "NAPI\NAPI.csproj", "{B72F51A7-8536-4CB6-A302-03048D81EF30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils", "Utils\Utils.csproj", "{AADD16F1-E320-452B-9FE7-3E8085003488}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B72F51A7-8536-4CB6-A302-03048D81EF30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B72F51A7-8536-4CB6-A302-03048D81EF30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B72F51A7-8536-4CB6-A302-03048D81EF30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B72F51A7-8536-4CB6-A302-03048D81EF30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AADD16F1-E320-452B-9FE7-3E8085003488}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AADD16F1-E320-452B-9FE7-3E8085003488}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AADD16F1-E320-452B-9FE7-3E8085003488}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AADD16F1-E320-452B-9FE7-3E8085003488}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5BA2682C-341D-437B-B10D-4A41C2E1A8E1}
+	EndGlobalSection
+EndGlobal

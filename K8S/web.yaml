@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/name: napi-web
+  name: napi-web-deployment
+spec:
+  replicas: 1
+  minReadySeconds: 10
+  template:
+    metadata:
+      labels:
+        app: napi-web
+    spec:
+      containers:
+      - name: napiweb
+        image: ldkd1:1
+        env:
+        - name: DBConnStr
+          value: "Server=napi-db-svc;Port=3306;Database=ldk;User Id=louis;Password=ldk123;SSL Mode=Preferred"
+        resources: 
+          requests:
+            memory: "64Mi"
+            cpu: "0.1"
+          limits:
+            memory: "256Mi"
+            cpu: "0.5"
+        ports:
+        - containerPort: 80
+  selector:
+    matchLabels:
+      app: napi-web
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: napi-web-svc
+spec:
+  ports:
+  - port: 80
+  selector:
+    app: napi-web
+  type: LoadBalancer
+

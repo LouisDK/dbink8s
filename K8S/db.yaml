@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/name: napi-db
+  name: napi-db-deployment
+spec:
+  replicas: 1
+  minReadySeconds: 10
+  template:
+    metadata:
+      labels:
+        app: napi-db
+    spec:
+      containers:
+      - name: napidb
+        image: mariadb:latest
+        env:
+        - name: ACCEPT_EULA
+          value: "Y"
+        - name: MYSQL_ROOT_PASSWORD
+          value: "secret"
+        - name: MYSQL_DATABASE
+          value: ldk
+        - name: MYSQL_USER
+          value: "louis"
+        - name: MYSQL_PASSWORD
+          value: "ldk123"
+        volumeMounts:
+          - mountPath: /var/lib/mysql
+            name: sqlvol1
+        resources: 
+          requests:
+            memory: "64Mi"
+            cpu: "0.1"
+          limits:
+            memory: "256Mi"
+            cpu: "0.5"
+        ports:
+        - containerPort: 3306
+      volumes:
+        - name: sqlvol1
+          persistentVolumeClaim:
+            claimName: napi-data-vol1-pvc
+  selector:
+    matchLabels:
+      app: napi-db
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: napi-db-svc
+spec:
+  ports:
+  - port: 3306
+  selector:
+    app: napi-db
+  type: LoadBalancer
+

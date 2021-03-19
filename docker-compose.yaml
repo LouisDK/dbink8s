@@ -1,0 +1,26 @@
+version: "3.7"
+
+services:
+  app:
+    image: ldkd1:1
+    ports:
+      - 3000:80
+    environment:
+      DBConnStr: Server=napidb;Port=3306;Database=ldk;User Id=louis;Password=ldk123;SSL Mode=Preferred
+    depends_on:
+      - napidb
+
+  napidb:
+    image: mariadb:latest
+    ports: 
+      - 3306:3306
+    volumes:
+      - napi-mysql-data:/var/lib/mysql
+    environment: 
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: ldk
+      MYSQL_USER: louis
+      MYSQL_PASSWORD: ldk123
+
+volumes:
+  napi-mysql-data:

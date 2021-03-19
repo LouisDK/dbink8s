@@ -1,0 +1,10 @@
+{
+  "kind": "Namespace",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "napi-dev",
+    "labels": {
+      "name": "napi-dev"
+    }
+  }
+}
