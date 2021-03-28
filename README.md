@@ -1,7 +1,37 @@
 
+
+# Optional - Install the Kubernetes Dashboard:
+Run this:
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.1.0/aio/deploy/recommended.yaml
+```
+And then (while in the "K8S" directory):
+```
+kubectl apply -f .\createDashboardUser.yaml
+```
+And then (while in the "K8S" directory):
+```
+kubectl apply -f .\DashboardUserRole.yaml
+```
+
+
+# Installing an Ingress Controller
+
+Install an ingress controller like this:
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/provider/cloud/deploy.yaml
+```
+
+Then configure the controller like this (while in the "K8S" directory)::
+```
+kubectl apply -f .\ingressController.yaml
+```
+
+
 # Installing the Helm Chart
 
 You can install this sample solution using Helm using this command:
+(while in the "chart" directory)
 ```
 helm upgrade --install napichart . --namespace=customer42 --create-namespace --set global.customer=customer42.batman.local
  ```
