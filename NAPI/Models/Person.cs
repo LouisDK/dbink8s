@@ -11,5 +11,6 @@ namespace NAPI.Models
         public string firstName { get; set; }
         public int age { get; set; }
 
+        //public string favColour { get; set; }
     }
 }

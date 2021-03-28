@@ -1,0 +1,1 @@
+ docker build -f .\napi.Dockerfile . -t napi:1

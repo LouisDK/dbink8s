@@ -9,7 +9,7 @@ nweb:
   replicaCount: 1
   
   image:
-    repository: ldkw
+    repository: nui
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
     tag: "1"
@@ -33,25 +33,10 @@ nweb:
     # fsGroup: 2000
 
   securityContext: {}
-    # capabilities:
-    #   drop:
-    #   - ALL
-    # readOnlyRootFilesystem: true
-    # runAsNonRoot: true
-    # runAsUser: 1000
 
   service:
     type: ClusterIP
     port: 80
-
-  ingress:
-    enabled: true
-    annotations:
-      nginx.ingress.kubernetes.io/rewrite-target: "/"
-    hosts:
-      - host: nweb
-        paths: 
-        - path: "/myapp"
 
   resources: 
     # We usually recommend not to specify default resources and to leave this as a conscious
@@ -84,10 +69,10 @@ napiapi:
   replicaCount: 1
   
   image:
-    repository: ldke
+    repository: napi
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "6"
+    tag: "1"
 
   imagePullSecrets: []
   nameOverride: ""
@@ -108,25 +93,10 @@ napiapi:
     # fsGroup: 2000
 
   securityContext: {}
-    # capabilities:
-    #   drop:
-    #   - ALL
-    # readOnlyRootFilesystem: true
-    # runAsNonRoot: true
-    # runAsUser: 1000
 
   service:
     type: ClusterIP
     port: 80
-
-  ingress:
-    enabled: true
-    annotations:
-      nginx.ingress.kubernetes.io/rewrite-target: "/"
-    hosts:
-      - host: napiapi
-        paths: 
-        - path: "/myapp"
 
   resources: 
     # We usually recommend not to specify default resources and to leave this as a conscious
@@ -182,12 +152,6 @@ napidb:
     # fsGroup: 2000
 
   securityContext: {}
-    # capabilities:
-    #   drop:
-    #   - ALL
-    # readOnlyRootFilesystem: true
-    # runAsNonRoot: true
-    # runAsUser: 1000
 
   database:
     size: 8Gi
@@ -223,4 +187,4 @@ napidb:
   affinity: {}
 
 global:
-  customer: blue
+  customer: tobespecifiedwheninstallingHelmChart

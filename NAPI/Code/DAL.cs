@@ -30,7 +30,10 @@ namespace NAPI.Controllers
 
             // Note the use of parameters. This is how to avoid SQL Injection attacks. https://www.learndapper.com/parameters
             string sql = "INSERT People (personID, firstName, age) VALUES (@personID, @firstName, @age)";
-            var parameters = new { personID = rnd.Next(100,100000), firstName = name, age = rnd.Next(18,90) }; //Bad example, since we could have conflicts with PersonID numbers.
+            var parameters = new { personID = rnd.Next(100,100000), firstName = name, age = rnd.Next(18,90)}; //Bad example, since we could have conflicts with PersonID numbers.
+
+            //string sql = "INSERT People (personID, firstName, age, favColour) VALUES (@personID, @firstName, @age, @favColour)";
+            //var parameters = new { personID = rnd.Next(100, 100000), firstName = name, age = rnd.Next(18, 90), favColour = "Yellow" }; //Bad example, since we could have conflicts with PersonID numbers.
 
             using (var connection = Utils.DapperHelpers.GetConnection())
             {

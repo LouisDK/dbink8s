@@ -2,7 +2,6 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
-    //var apiURL = Environment.GetEnvironmentVariable("apiurl");
 }
 
 <div class="text-center">
@@ -16,7 +15,7 @@
     <button id="btnRefresh">Refresh</button>
     
     <br />
-    <p>I know this page is ugly, but my intention was to demo the backend, not the frontend.</p>
+    <p>I know this page is ugly, but my intention was to demo Helm charts in Kubernetes and MariaDB in a Pod, not the frontend.</p>
 </div>
 
 
@@ -25,8 +24,12 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
+            function randomNumber(min, max) {
+                return Math.random() * (max - min) + min;
+            }
+
             $('#btnAdd').click(function () {
-                var newPerson = { "personID" : 31, "firstName" : "Bob3", "age" : 49 };
+                var newPerson = { "personID": -1, "firstName": "Bob-" + randomNumber(1,100000), "age" : -1 };
                 var myJSON = JSON.stringify(newPerson);
                 var Url = '/api/people';
                 var reqParam = {
@@ -48,6 +51,7 @@
                         { "name": "personID", "title": "ID", "breakpoints": "xs" },
                         { "name": "firstName", "title": "First Name" },
                         { "name": "age", "title": "Age" }
+                        // ,{ "name": "favColour", "title": "favColour" }
                     ],
                     "rows": $.get('/api/people')
                 });

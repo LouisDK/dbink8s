@@ -1,18 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="DBScripts\1-InitialTables.sql" />
-    <None Remove="DBScripts\2-SampleData-People.sql" />
-  </ItemGroup>
+	<ItemGroup>
+	  <None Remove="DBScripts\1-InitialTables.sql" />
+	  <None Remove="DBScripts\2-SampleData-People.sql" />
+	  <None Remove="DBScripts\3-Feature-FavColour.sql" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Include="DBScripts\1-InitialTables.sql" />
+	<ItemGroup>
+	  <EmbeddedResource Include="DBScripts\1-InitialTables.sql" />
 	  <EmbeddedResource Include="DBScripts\2-SampleData-People.sql" />
-  </ItemGroup>
+	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Dapper" Version="2.0.78" />

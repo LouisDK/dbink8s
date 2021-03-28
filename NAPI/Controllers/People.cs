@@ -16,13 +16,7 @@ namespace NAPI.Controllers
         [HttpGet]
         public IEnumerable<Person> Get()
         {
-            var x = DAL.GetListOfPeople().GetAwaiter().GetResult();
-
-
-            x.Add(new Person() { personID = -1, firstName = $"v8", age = 2 });
-
-
-            return x;
+            return DAL.GetListOfPeople().GetAwaiter().GetResult();
         }
 
         [HttpPost]
@@ -30,11 +24,6 @@ namespace NAPI.Controllers
         {
             DAL.AddPerson(newPerson.firstName).GetAwaiter().GetResult();
         }
-
-        //public class Person
-        //{
-        //    public string Name { get; set; }
-        //}
 
     }
 }

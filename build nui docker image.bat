@@ -1,0 +1,1 @@
+ docker build -f .\nui.Dockerfile . -t nui:1
