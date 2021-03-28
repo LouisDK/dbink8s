@@ -18,13 +18,23 @@ namespace NAPI.Controllers
         {
             var x = DAL.GetListOfPeople().GetAwaiter().GetResult();
 
-            if (x.Count > 1)
-            {
-                x.First().firstName += $" - {Environment.MachineName}";
-            }
+
+            x.Add(new Person() { personID = -1, firstName = $"v8", age = 2 });
+
 
             return x;
         }
+
+        [HttpPost]
+        public void Add(Person newPerson)
+        {
+            DAL.AddPerson(newPerson.firstName).GetAwaiter().GetResult();
+        }
+
+        //public class Person
+        //{
+        //    public string Name { get; set; }
+        //}
 
     }
 }

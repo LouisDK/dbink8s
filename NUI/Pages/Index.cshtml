@@ -1,0 +1,60 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+    //var apiURL = Environment.GetEnvironmentVariable("apiurl");
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Lets retrieve a list of people from an API (which runs in a seperate container), which gets the data from a MariaDB database (which runs in yet another different container)</p>
+    <br />
+
+    <table id="myTable"></table>
+    <br />
+    <button id="btnAdd">Add</button>
+    <button id="btnRefresh">Refresh</button>
+    
+    <br />
+    <p>I know this page is ugly, but my intention was to demo the backend, not the frontend.</p>
+</div>
+
+
+@section Scripts {
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#btnAdd').click(function () {
+                var newPerson = { "personID" : 31, "firstName" : "Bob3", "age" : 49 };
+                var myJSON = JSON.stringify(newPerson);
+                var Url = '/api/people';
+                var reqParam = {
+                    headers: { "Content-Type": "application/json" },
+                    body: myJSON,
+                    method: "POST"
+                };
+
+                fetch(Url, reqParam)
+                    .then(data => { return data.json() })
+                    .then(res => { console.log(res) })
+                    .catch(error => console.log(error));
+
+            });
+ 
+            $('#btnRefresh').click(function () {
+                $('#myTable').footable({
+                    "columns": [
+                        { "name": "personID", "title": "ID", "breakpoints": "xs" },
+                        { "name": "firstName", "title": "First Name" },
+                        { "name": "age", "title": "Age" }
+                    ],
+                    "rows": $.get('/api/people')
+                });
+            });
+
+        });
+
+    </script>
+
+}

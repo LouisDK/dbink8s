@@ -2,7 +2,18 @@ version: "3.7"
 
 services:
   app:
-    image: ldkd1:1
+    image: ldkw:1
+    links:
+      - "nnapi:apiserver"
+    ports:
+      - 3001:80
+    environment:
+      apiurl: localhost:3000
+    depends_on:
+      - nnapi
+
+  nnapi:
+    image: ldke:6
     ports:
       - 3000:80
     environment:

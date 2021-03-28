@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NAPI", "NAPI\NAPI.csproj", "{B72F51A7-8536-4CB6-A302-03048D81EF30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils", "Utils\Utils.csproj", "{AADD16F1-E320-452B-9FE7-3E8085003488}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utils", "Utils\Utils.csproj", "{AADD16F1-E320-452B-9FE7-3E8085003488}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUI", "NUI\NUI.csproj", "{66E73D66-BD76-48B5-B80E-43BCE56D367B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{AADD16F1-E320-452B-9FE7-3E8085003488}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AADD16F1-E320-452B-9FE7-3E8085003488}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AADD16F1-E320-452B-9FE7-3E8085003488}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66E73D66-BD76-48B5-B80E-43BCE56D367B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66E73D66-BD76-48B5-B80E-43BCE56D367B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66E73D66-BD76-48B5-B80E-43BCE56D367B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66E73D66-BD76-48B5-B80E-43BCE56D367B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
